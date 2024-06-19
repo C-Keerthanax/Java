@@ -1,0 +1,50 @@
+class Day1 {
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] + nums[i] == target) {
+                    return new int[] { i, j };
+                }
+            }
+        }
+        // In case there is no solution, we'll just return null
+        return new int[]{-1, -1};
+    }
+
+    public static void main(String[] args) {
+        Day1 sol = new Day1();
+        int[] a = {1, 2, 3, 4, 5};
+        int target = 7;
+        int[] result = sol.twoSum(a, target);
+        System.out.println(result[0] + " " + result[1]);
+    }
+}
+
+// Method 2 Using HashMaps
+import java.util.HashMap;
+import java.util.Map;
+
+class Day1a {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> complement = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+           Integer index = complement.get(nums[i]);
+           if(index!=null){
+            return new int[]{index,i};
+           }
+           complement.put(target-nums[i],i);
+        }
+
+        // In case there is no solution, we'll just return null
+        return new int[]{-1, -1};
+    }
+    public static void main(String[] args) {
+        Day1a solu = new Day1a();
+        int[] a = {1, 2, 3, 4, 5};
+        int target = 7;
+        int[] result = solu.twoSum(a, target);
+        System.out.println(result[0] + " " + result[1]);
+    }
+    
+}
