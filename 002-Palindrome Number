@@ -1,0 +1,19 @@
+class Solution {
+    public boolean isPalindrome(int x) {
+        String num = String.valueOf(x);
+        StringBuilder s = new StringBuilder();
+        int len = num.length();
+        for(int i=len-1;i>=0;i--){
+            s.append(num.charAt(i));
+
+        }
+        String reverse = s.toString();
+        if(num.equals(reverse)){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+}
