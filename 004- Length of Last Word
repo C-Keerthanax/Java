@@ -1,0 +1,9 @@
+#Method -1 took 1ms and 41.58MB
+class Solution {
+    public int lengthOfLastWord(String s) {
+        String[] n = s.split(" ");
+        String  p =  n[n.length-1];
+        return(p.length());
+        
+    }
+}
