@@ -1,4 +1,8 @@
-''' TIME LIMIT EXCEEDED BUT STILL I HAVE WRITTEN THIS CODE '''
+/*TIME LIMIT EXCEEDED BUT STILL I HAVE WRITTEN THIS CODE 
+ Possible reasons:
+ 1. Bunch of if else conditions
+ 2. Calclation is long like if 4/1(it will take 1+1+1+1)
+ If bigger number like 109999 it will take forever*/
 
 
 class Solution {
@@ -76,5 +80,33 @@ class Solution {
         }
        
         
+    }
+}
+
+
+
+
+/*Method 2 - TIME LIMIT EXCEEDED 
+Possible reassons :
+ I don't know*/
+
+class Solution {
+    public int divide(int dividend, int divisor) {
+        if(dividend == Integer.MIN_VALUE && divisor == -1){
+            return Integer.MAX_VALUE;
+        }
+        int a = Math.abs(dividend);
+        int b = Math.abs(divisor);
+        int res = 0;
+        while(a - b >= 0){
+            
+            int count = 0;
+            while( a-(b<<count+1)>=0 ){
+                count++;
+            }
+            res += 1 << count;
+            a -= b << count;
+        }
+        return (dividend >= 0) == (divisor >= 0) ? res :-res;
     }
 }
