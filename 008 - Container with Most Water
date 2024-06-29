@@ -1,0 +1,29 @@
+/* Max water the container can store. Used two for loops 
+   Time complexity = O(N^2)
+   Space complexity = O(1)
+*/
+
+
+
+class Solution {
+    public int maxArea(int[] height) {
+        int maxarea = 0;
+        int n=0;
+        for(int i=0;i<height.length;i++){
+            for(int j=i+1,k=1;j<height.length;j++,k++){ 
+                int sum =0;  
+                if(height[i]>=height[j]){
+                    n = height[j];
+                    sum = n*k;
+                }else{
+                    n=height[i];
+                    sum = n*k;
+                }
+                if(sum>maxarea){
+                    maxarea = sum;
+                }
+            }
+        }return(maxarea);
+        
+    }
+}
