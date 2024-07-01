@@ -1,0 +1,24 @@
+/* Passed 77/111 test cases */
+
+
+class Solution {
+    public int[] plusOne(int[] digits) {
+        long rev=0;
+        for (int i = 0; i<digits.length; i++) {
+            int lastdigit = digits[i];
+            rev = rev * 10 + lastdigit;
+        }
+        rev = rev +1;
+        long temp = rev;
+        int[] arr = new int[String.valueOf(rev).length()]; 
+        int index = arr.length-1;
+        while (temp > 0) {
+            long digit = temp % 10; 
+            arr[index] =(int)digit; 
+            temp = temp / 10; 
+            index--; 
+        }
+        return arr;
+        
+    }
+}
