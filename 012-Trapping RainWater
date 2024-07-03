@@ -1,0 +1,36 @@
+class Solution {
+    public int trap(int[] height) {
+        int[] maxleft = new int[height.length];
+        int[] maxright = new int[height.length];
+        int max = Integer.MIN_VALUE;
+        int max2 = Integer.MIN_VALUE;
+        int width =1;
+        int sum=0;
+        int waterlevel;
+        for(int i=0;i<height.length;i++){
+            if(height[i]>max){
+                max = height[i];
+            }
+            maxleft[i] = max;
+
+        }
+        for(int i=height.length-1;i>=0;i--){
+            if(height[i]>max2){
+                max2 = height[i];
+            }
+            maxright[i] = max2;
+
+        }
+        for(int i=0;i<height.length;i++){
+            if(maxleft[i]>maxright[i]){
+                waterlevel = (maxright[i] - height[i])*width;
+                sum+=waterlevel;
+            }else{
+                waterlevel = (maxleft[i] - height[i])*width;
+                sum+=waterlevel;
+            }
+        }
+        return sum;
+        
+    }
+}
