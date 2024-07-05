@@ -1,0 +1,32 @@
+/* Passed 301/306 Test cases
+   Time complexity -  O(log n) due to the logarithmic time complexity of Math.pow(a, b).
+   Space complexity - O(1) due to constant space usage by local variables and potential minimal stack usage.
+*/
+
+
+
+class Solution {
+    public double myPow(double x, int n) {
+        double a = Math.abs(x);
+         b = Math.abs(n);
+        if(x>0 & n>0){
+            return (Math.pow(a,b));
+        }
+        else if(x<0 & n>0){
+            if(n%2==0){return (Math.pow(a,b));}
+            else{return -(Math.pow(a,b));}
+            
+        }
+        else if(x>0 &n<0){
+            return (1/Math.pow(a,b));
+        }
+        else if(x<0 & n<0){
+            return -(1/Math.pow(a,b));
+        }else if ((x>0 & n==0) ||(x>0 & n==0)){
+            return 1;
+        }else{
+            return 0;
+        }
+        
+    }
+}
